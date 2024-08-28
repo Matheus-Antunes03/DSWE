@@ -32,7 +32,8 @@ class ContatoForm(FlaskForm):
     mensagem = TextAreaField(
         'Mensagem',
         validators=[
-            DataRequired(message="O campo mensagem é obrigatório.")
+            DataRequired(message="O campo mensagem é obrigatório."),
+            Length(min=10, max=500, message="A mensagem deve ter entre 10 e 500 caracteres.")
             ]
     )
     enviar = SubmitField(
